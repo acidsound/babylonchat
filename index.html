@@ -1,0 +1,44 @@
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <script src="jquery-1.2.6.min.js" type="text/javascript"></script>
+    <script src="client.js" type="text/javascript"></script>
+    <title>Babylon Chat</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="connect">
+        <form action="#">
+          <fieldset> 
+            <p>
+              클라이언트/서버 모두 자바스크립트로만 만든 대화방입니다. 이름을 치고 들어오세요.
+            </p>
+
+            <label for="nick">이름</label>
+            <input id="nickInput" class="text"type="text" name="nick" value=""/>
+            <label for="target">국적</label>
+            <input id="targetInput" class="text"type="text" name="target" value="en"/>
+            <input id="connectButton" class="button" type="submit" name="" value="Join"/>
+
+          </fieldset>
+        </form>
+      </div>
+      <div id="loading"><p>loading</p></div>
+      <div id="log">
+        <table class="message"><tr><td class="date">20:20</td><td valign="top" class="nick">catalystmediastu</td>
+         <td class="msg-text">bougyman: Thanks, that looks like a good tool too. I'll look into them both a little 
+                                  more.
+         </td>
+        </tr></table>
+      </div>
+      <div id="toolbar">
+        <ul id="status">
+          <li><a id="usersLink" href="#">5 users</a></li>
+          <li>uptime: <span id="uptime">?</span></li>
+          <li>memory: <span id="rss">?</span>mb RSS</li>
+        </ul>
+        <input tabindex="1" type="text" id="entry"/>
+      </div>
+  </body>
+</html>
