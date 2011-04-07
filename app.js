@@ -10,6 +10,7 @@ var app = module.exports = express.createServer();
 
 var rcount=0;
 // Configuration
+var port=4000;
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
@@ -34,25 +35,22 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', function(req, res){
-  res.render('index', {
-    title: 'Express'
-  });
-});
-
-app.get('/recv', function(req, res) {
-  sys.log("recv triggered");
-  res.send(JSON.stringify({message : "Counting"+rcount++, rss:''}));
+  res.send("http://xx/[별명]으로 들어오세요");
 });
 
 app.get('/:user', function(req, res) {
-  res.send(req.params['user']);
-  
+  res.render('index', {
+    title: req.params.user+"님의 똥찌꺼기",
+    user : req.params.user,
+    listenPort: port
+  });
+  console.log(req.params.user+" entered");
 });
 
 // Only listen on $ node app.js
 
 if (!module.parent) {
-  app.listen(3000);
+  app.listen(port);
   console.log("Express server listening on port %d", app.address().port);
 }
 
