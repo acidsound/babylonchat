@@ -47,6 +47,10 @@ app.get('/:user', function(req, res) {
   console.log(req.params.user+" entered");
 });
 
+app.get('/client.js', function(req, res) {
+  res.send("alert('imsosorrybutiloveu')");
+});
+
 // Only listen on $ node app.js
 
 if (!module.parent) {
@@ -63,6 +67,7 @@ io.on('connection', function(client){
   
   client.on('message', function(message){
     var msg = { message: [client.sessionId, message] };
+    console.log(message);
     buffer.push(msg);
     if (buffer.length > 15) buffer.shift();
     client.broadcast(msg);

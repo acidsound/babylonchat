@@ -14,7 +14,7 @@ function message(obj){
 function send(){
     var val = $("#text").val();
     socket.send(val);
-    message({ message: ['<%=user%>', val] });
+    message({ message: [user, val] });
     $("#text").val("");
     return false;
 }
